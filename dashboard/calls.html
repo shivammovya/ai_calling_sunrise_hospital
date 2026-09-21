@@ -73,9 +73,23 @@
 
   lib.populateDeptFilter("dept-filter", data);
 
-  const initialStatus = new URLSearchParams(window.location.search).get("status");
-  if (initialStatus === "missed" || initialStatus === "booked" || initialStatus === "pending") {
+  const searchParams = new URLSearchParams(window.location.search);
+  const initialStatus = searchParams.get("status");
+  const isFollowUpView = searchParams.get("view") === "followup";
+
+  if (isFollowUpView) {
+    document.getElementById("appt-filter").value = "missed";
+  } else if (initialStatus === "missed" || initialStatus === "booked" || initialStatus === "pending") {
     document.getElementById("appt-filter").value = initialStatus;
+  }
+
+  if (isFollowUpView) {
+    document.title = "Follow-up — Invictus Hospital Call Analytics";
+    const h1 = document.querySelector(".page-header h1");
+    if (h1) h1.textContent = "Follow-up";
+    const subtitle = document.querySelector(".page-header p");
+    if (subtitle) subtitle.textContent = "Missed calls that need a follow-up.";
+    document.getElementById("appt-filter").style.display = "none";
   }
 
   function detailsUrlFor(r) {

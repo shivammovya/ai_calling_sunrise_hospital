@@ -42,10 +42,13 @@ window.DashboardLib = (function () {
   function computeKpiTiles(rows) {
     const total = rows.length;
     const booked = rows.filter(r => r.appointment_booked).length;
-    const conversion = total ? Math.round((booked / total) * 100) : 0;
+    const missed = rows.filter(r => r.call_status === "missed").length;
+    // Missed-call callbacks aren't real booking opportunities, so they're
+    // excluded from the conversion-rate denominator.
+    const conversionEligible = total - missed;
+    const conversion = conversionEligible ? Math.round((booked / conversionEligible) * 100) : 0;
     const avgDurationSec = total ? Math.round(rows.reduce((a, r) => a + (r.duration_seconds || 0), 0) / total) : 0;
     const depts = new Set(rows.map(r => r.department).filter(Boolean));
-    const missed = rows.filter(r => r.call_status === "missed").length;
 
     return [
       { label: "Total calls", value: total, icon: ICONS.phone },
@@ -105,15 +108,17 @@ window.DashboardLib = (function () {
 
   // ---- Outcome bar ----
   function renderOutcome(pctId, barId, rows) {
-    const total = rows.length;
     const booked = rows.filter(r => r.appointment_booked).length;
-    const pct = total ? Math.round((booked / total) * 100) : 0;
-    document.getElementById(pctId).textContent = total ? `${pct}%` : "—";
+    // Missed-call callbacks aren't real booking opportunities, so they're
+    // excluded from the denominator, matching the Conversion rate KPI tile.
+    const eligible = rows.filter(r => r.call_status !== "missed").length;
+    const pct = eligible ? Math.round((booked / eligible) * 100) : 0;
+    document.getElementById(pctId).textContent = eligible ? `${pct}%` : "—";
     const bar = document.getElementById(barId);
-    if (!total) { bar.innerHTML = ""; return; }
+    if (!eligible) { bar.innerHTML = ""; return; }
     bar.innerHTML = `
       <div class="outcome-seg booked" style="width:${pct}%" title="Booked: ${booked}"></div>
-      <div class="outcome-seg pending" style="width:${100 - pct}%" title="Not booked: ${total - booked}"></div>
+      <div class="outcome-seg pending" style="width:${100 - pct}%" title="Not booked: ${eligible - booked}"></div>
     `;
   }
 

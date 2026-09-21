@@ -7,6 +7,7 @@
   const NAV = [
     { key: "dashboard", label: "Dashboard", href: "index.html", icon: "home" },
     { key: "calls", label: "Calls", href: "calls.html", icon: "phone" },
+    { key: "followup", label: "Follow-up", href: "calls.html?view=followup", icon: "alert" },
     { key: "analytics", label: "Analytics", href: "analytics.html", icon: "barChart" },
   ];
 
@@ -15,8 +16,13 @@
     const ICONS = lib.ICONS;
     const body = document.body;
     const activePage = body.getAttribute("data-page") || "";
-    const pageTitle = body.getAttribute("data-title") || "";
     const showRange = body.getAttribute("data-show-range") === "true";
+
+    // The Follow-up nav item reuses the Calls page (pre-filtered via a query
+    // param) rather than a separate HTML file, so it needs its own title/
+    // active-state handling layered on top of the calls page's own data-*.
+    const isFollowUpView = activePage === "calls" && new URLSearchParams(window.location.search).get("view") === "followup";
+    const pageTitle = isFollowUpView ? "Follow-up" : (body.getAttribute("data-title") || "");
 
     const shell = document.querySelector(".app-shell");
     const bodyRow = document.querySelector(".body-row");
@@ -40,7 +46,11 @@
 
     // Call Details isn't a top-level nav item, but it belongs to Calls —
     // keep "Calls" highlighted so wayfinding stays clear on that page.
-    const isActive = (item) => item.key === activePage || (item.key === "calls" && activePage === "call");
+    const isActive = (item) => {
+      if (item.key === "followup") return isFollowUpView;
+      if (item.key === "calls") return (activePage === "calls" && !isFollowUpView) || activePage === "call";
+      return item.key === activePage;
+    };
 
     const navLinksHtml = NAV.map(item => `
       <a class="nav-link${isActive(item) ? " active" : ""}" href="${item.href}">

@@ -144,10 +144,10 @@ const CALLS_DATA = [
     "hospital": "Dr. Ishan Shah - Invictus Gastro Hospital",
     "phone": "+917879278795",
     "call_date": "2026-09-21",
-    "call_time": "17:37",
-    "call_datetime_display": "Sep 21, 2026 5:37 PM",
-    "duration": "1:58",
-    "duration_seconds": 118,
+    "call_time": "19:51",
+    "call_datetime_display": "Sep 21, 2026 7:51 PM",
+    "duration": "2:25",
+    "duration_seconds": 145,
     "outcome": "No Decision",
     "call_status": "missed",
     "caller_name": "Dhaval",
@@ -166,11 +166,11 @@ const CALLS_DATA = [
     ],
     "topics": [
       "Missed call callback",
-      "Hospital address & OPD timings",
-      "Treatments offered",
-      "Pancreas-related concern",
+      "Hospital services & OPD timings",
+      "Upper abdominal pain & vomiting",
+      "Pancreatic symptoms & diagnostic tests",
       "Appointment declined for now"
     ],
-    "summary": "The agent called back after an earlier missed call and, at the caller's request, shared Invictus Hospital's address and OPD timings, then explained Dr. Ishan Shah's gastroenterology and GI surgery specialties. The caller asked specifically about pancreas-related conditions; the agent described pancreatitis and pancreatic tumor treatment but noted the caller had no reports yet. The caller declined to book an appointment at that time, saying they would follow up soon."
+    "summary": "The user's primary intent was to gather information about Invictus Hospital and symptoms related to pancreatic issues. The agent provided details about the hospital's services and Dr. Ishan Shah's specializations, then answered the user's questions about potential pancreatic symptoms and diagnostic tests. The call concluded with the user declining an appointment for now, stating they only needed basic information and would call back later if needed."
   }
 ];
