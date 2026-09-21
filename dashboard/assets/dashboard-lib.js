@@ -45,6 +45,7 @@ window.DashboardLib = (function () {
     const conversion = total ? Math.round((booked / total) * 100) : 0;
     const avgDurationSec = total ? Math.round(rows.reduce((a, r) => a + (r.duration_seconds || 0), 0) / total) : 0;
     const depts = new Set(rows.map(r => r.department).filter(Boolean));
+    const missed = rows.filter(r => r.call_status === "missed").length;
 
     return [
       { label: "Total calls", value: total, icon: ICONS.phone },
@@ -52,6 +53,7 @@ window.DashboardLib = (function () {
       { label: "Conversion rate", value: `${conversion}%`, icon: ICONS.trendingUp },
       { label: "Avg. call duration", value: fmtDuration(avgDurationSec), icon: ICONS.clock },
       { label: "Departments reached", value: depts.size, icon: ICONS.grid },
+      { label: "Follow-up", value: missed, sub: missed === 1 ? "missed call" : "missed calls", icon: ICONS.alert, href: "calls.html?status=missed" },
     ];
   }
 
@@ -59,13 +61,21 @@ window.DashboardLib = (function () {
   function renderKPIs(containerId, rows) {
     const tiles = computeKpiTiles(rows);
     document.getElementById(containerId).innerHTML = tiles.map(t => `
-      <div class="kpi-tile">
+      <div class="kpi-tile${t.href ? " kpi-tile-link" : ""}"${t.href ? ` role="link" tabindex="0" data-href="${escapeHtml(t.href)}"` : ""}>
         <div class="icon" aria-hidden="true">${t.icon}</div>
         <div class="label">${escapeHtml(t.label)}</div>
         <div class="value">${escapeHtml(t.value)}</div>
         ${t.sub ? `<div class="sub">${escapeHtml(t.sub)}</div>` : ""}
       </div>
     `).join("");
+
+    document.querySelectorAll(`#${containerId} .kpi-tile-link`).forEach(tile => {
+      const go = () => { window.location.href = tile.getAttribute("data-href"); };
+      tile.addEventListener("click", go);
+      tile.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); }
+      });
+    });
   }
 
   // ---- Department chart ----
@@ -109,6 +119,9 @@ window.DashboardLib = (function () {
 
   // ---- Table ----
   function statusBadge(r) {
+    if (r.call_status === "missed") {
+      return `<span class="badge missed"><span class="dot"></span>Missed</span>`;
+    }
     return r.appointment_booked
       ? `<span class="badge booked"><span class="dot"></span>Booked</span>`
       : `<span class="badge pending"><span class="dot"></span>No appointment</span>`;

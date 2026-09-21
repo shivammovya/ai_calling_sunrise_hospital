@@ -136,5 +136,41 @@ const CALLS_DATA = [
       "OPD timings"
     ],
     "summary": "Rahul, a first-time caller, reported 4 days of vomiting with no prior tests done. The agent booked a consultation for the next afternoon (Sep 17) at 3:00 PM, noted his name and contact number, and confirmed the team would follow up to reconfirm the slot."
+  },
+  {
+    "id": "transcript4",
+    "recording_file": "recording4.mp3",
+    "transcript_file": "transcript4.txt",
+    "hospital": "Dr. Ishan Shah - Invictus Gastro Hospital",
+    "phone": "+917879278795",
+    "call_date": "2026-09-21",
+    "call_time": "17:37",
+    "call_datetime_display": "Sep 21, 2026 5:37 PM",
+    "duration": "1:58",
+    "duration_seconds": 118,
+    "outcome": "No Decision",
+    "call_status": "missed",
+    "caller_name": "Dhaval",
+    "patient_name": null,
+    "city": "Ahmedabad",
+    "department": "Pancreatic Disorder Inquiry",
+    "doctor": "Dr. Ishan Shah",
+    "first_visit": null,
+    "appointment_booked": false,
+    "appointment_date": null,
+    "appointment_time": null,
+    "appointment_datetime_display": null,
+    "languages": [
+      "Gujarati",
+      "English"
+    ],
+    "topics": [
+      "Missed call callback",
+      "Hospital address & OPD timings",
+      "Treatments offered",
+      "Pancreas-related concern",
+      "Appointment declined for now"
+    ],
+    "summary": "The agent called back after an earlier missed call and, at the caller's request, shared Invictus Hospital's address and OPD timings, then explained Dr. Ishan Shah's gastroenterology and GI surgery specialties. The caller asked specifically about pancreas-related conditions; the agent described pancreatitis and pancreatic tumor treatment but noted the caller had no reports yet. The caller declined to book an appointment at that time, saying they would follow up soon."
   }
 ];

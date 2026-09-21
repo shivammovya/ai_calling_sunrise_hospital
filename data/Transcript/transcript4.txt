@@ -1,0 +1,47 @@
+CALL TRANSCRIPT
+══════════════════════════════════════════════════
+Phone: +919328525350
+Agent: Dr. Ishan Shah - Invictus Hospital
+Date: Sep 21, 2026 5:37 PM
+Duration: 1:58
+Outcome: No Decision
+══════════════════════════════════════════════════
+
+[Agent] (5:38:10 PM)
+Namaste! Hu Dr. Ishan Shah ni assistant, Invictus Hospital thi vaat karu chhu. Mane maaf karjo, tamaro call missed thai gayo hato. Tame shena mate call karyo hato — hospital vishe janva, Dr. Ishan Shah vishe janva, ke pachhi appointment book karva?
+
+[Customer] (5:38:14 PM)
+મારે હોસ્પિટલ વિશે જાણવું હતું.
+
+[Agent] (5:38:30 PM)
+હા, સારું. Invictus Hospital, 3rd Floor, A Block, Roseville Sky, Shukan Cross Road, Opp. Pushkar Icon, New Naroda, Nikol, Ahmedabad — 382350. OPD timing છે 10 AM થી 8 PM સુધી. બીજું કંઈ જાણવા માંગો છો?
+
+[Customer] (5:38:35 PM)
+ત્યાં તમારે કઈ કઈ પ્રકારના રોગોનું નિદાન થાય છે?
+
+[Agent] (5:38:51 PM)
+ત્યાં ડૉક્ટર ઈશાન શાહ મેઈનલી ગેસ્ટ્રોએન્ટેરોલોજી અને GI સર્જરીના સ્પેશિયાલિસ્ટ છે. એટલે પેટને લગતા રોગો, gallbladder stone, હર્નિયા, પાઈલ્સ, લીવર અને પેન્ક્રિયાસના પ્રોબ્લેમ્સ, આ બધાનું નિદાન અને ટ્રીટમેન્ટ થાય છે. તમારે કોઈ સ્પેસિફિક કન્સર્ન વિશે પૂછવું છે?
+
+[Customer] (5:38:55 PM)
+મારે પેનક્રિયાસ વિશે જાણવું છે.
+
+[Agent] (5:39:07 PM)
+ઓકે. પેન્ક્રિયાસ રિલેટેડ જેમ કે પેન્ક્રિયાટાઈટિસ અથવા પેન્ક્રિયાટિક ટ્યુમર્સ જેવી કન્ડિશન્સમાં ડૉક્ટર શાહ સર્જિકલ ટ્રીટમેન્ટ આપે છે. શું તમને આના વિશે કંઈ સ્પેસિફિક જાણવું છે? કોઈ રિપોર્ટ્સ છે તમારી પાસે?
+
+[Customer] (5:39:14 PM)
+ના, અમારી પાસે રિપોર્ટ નથી પણ શું તમારે ત્યાં રિપોર્ટ બધી પ્રકારના થાય છે?
+
+[Agent] (5:39:30 PM)
+જુઓ, રિપોર્ટ્સ માટે અમે તમને ગાઈડ કરી શકીએ, પણ અમુક ટેસ્ટ કદાચ બહારથી કરાવવા પડે. હોસ્પિટલ માં અલ્ટ્રાસાઉન્ડ અને બ્લડ રિપોર્ટ્સ થઈ શકે, પણ બધી સુવિધા હોસ્પિટલ માં જ હોય એવું જરૂરી નથી. ડૉક્ટર શાહ તમને પ્રોપર ગાઈડન્સ આપશે. શું તમે અપોઈન્ટમેન્ટ બુક કરાવવા માંગો છો?
+
+[Customer] (5:39:37 PM)
+ના અત્યારે તો હું અપોઈન્ટમેન્ટ બુક કરાવો નથી માંગતો હું તમને ટૂંક સમયમાં જણાવીશ.
+
+[Agent] (5:39:49 PM)
+કોઈ વાંધો નહીં. બીજો કોઈ પ્રશ્ન છે તમારે? ક્યારેય પણ જરૂર પડે, તો બેધિજક કૉલ કરજો. તમારા ટાઈમ માટે ખૂબ ખૂબ આભાર! ડૉ. શાહની ટીમ તરફ થી તમને જલ્દી જ કન્ફર્મેશન મળશે. સાચવજો, આભાર!
+
+[Customer] (5:39:51 PM)
+આભાર.
+
+[Agent] (5:39:52 PM)
+end_call({"disposition":"INFO_ONLY","reason":"CONVERSATION_COMPLETE"}) -> {"disposition":"INFO_ONLY","message":"Call will end after final message. Do not speak again after this.","reason":"CONVERSATION_COMPLETE","success":true}

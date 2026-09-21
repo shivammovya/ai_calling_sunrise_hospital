@@ -30,6 +30,7 @@
               <option value="">All calls</option>
               <option value="booked">Appointment booked</option>
               <option value="pending">No appointment</option>
+              <option value="missed">Missed</option>
             </select>
           </div>
           <div class="table-scroll">
@@ -72,6 +73,11 @@
 
   lib.populateDeptFilter("dept-filter", data);
 
+  const initialStatus = new URLSearchParams(window.location.search).get("status");
+  if (initialStatus === "missed" || initialStatus === "booked" || initialStatus === "pending") {
+    document.getElementById("appt-filter").value = initialStatus;
+  }
+
   function detailsUrlFor(r) {
     return "call.html?id=" + encodeURIComponent(r.id);
   }
@@ -88,7 +94,8 @@
       }
       if (dept && r.department !== dept) return false;
       if (appt === "booked" && !r.appointment_booked) return false;
-      if (appt === "pending" && r.appointment_booked) return false;
+      if (appt === "pending" && (r.appointment_booked || r.call_status === "missed")) return false;
+      if (appt === "missed" && r.call_status !== "missed") return false;
       return true;
     });
     lib.renderTable("calls-tbody", "empty-state", lib.sortByNewest(rows), detailsUrlFor);
