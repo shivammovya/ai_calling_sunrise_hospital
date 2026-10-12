@@ -2,13 +2,11 @@
 // Extracted from the original single-page implementation — same function
 // bodies, same computations, just reusable across index/calls/call/analytics.
 window.DashboardLib = (function () {
-  // Specialties Invictus Hospital offers but that have no calls in the data yet —
+  // Services Sunrise Hospital offers but that have no calls in the data yet —
   // shown in the chart/filter with a 0 count so the full service list is visible.
   const ZERO_CALL_DEPARTMENTS = [
-    "Hernia Repair",
-    "Gallbladder & Biliary Surgery",
-    "Piles & Hemorrhoid Treatment",
-    "Bariatric Surgery",
+    "Cardiology",
+    "Women's Health",
   ];
 
   const ICONS = {

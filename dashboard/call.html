@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Call Details — Invictus Hospital Call Analytics</title>
+<title>Call Details — Sunrise Hospital Call Analytics</title>
 <link rel="stylesheet" href="assets/app.css" />
 </head>
 <body data-page="call" data-title="Call Details" data-show-range="false">
@@ -54,7 +54,7 @@
     return;
   }
 
-  document.title = (record.caller_name || "Call") + " — Call Details — Invictus Hospital Call Analytics";
+  document.title = (record.caller_name || "Call") + " — Call Details — Sunrise Hospital Call Analytics";
   document.getElementById("call-header").style.display = "flex";
   document.getElementById("call-title").textContent = record.caller_name || "Caller not given";
   document.getElementById("call-subtitle").textContent =
